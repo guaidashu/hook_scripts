@@ -5,6 +5,7 @@
 package service
 
 import (
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"hook_script/config"
 	"hook_script/utils"
@@ -14,6 +15,12 @@ import (
 func Hook(ctx *gin.Context) {
 	shellPath := ctx.Request.URL.Query().Get("name")
 	shellPath = config.Config.HookPath + shellPath + ".sh"
-	exec.Command(shellPath)
+	cmd := exec.Command(shellPath)
+	args := []string{cmd.Args[0], config.Config.HookPath}
+	cmd.Args = args
+	err := cmd.Start()
+	if err != nil {
+		fmt.Println("脚本执行出错")
+	}
 	utils.Success(ctx, shellPath)
 }
