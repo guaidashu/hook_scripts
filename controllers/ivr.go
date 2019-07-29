@@ -6,9 +6,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"hook_script/utils"
+	"hook_script/service"
 )
 
-func IvrHook(ctx *gin.Context) {
-	utils.Success(ctx, "ok")
+func Hook(ctx *gin.Context) {
+	service.Hook(ctx)
 }

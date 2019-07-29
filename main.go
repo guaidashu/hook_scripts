@@ -5,6 +5,7 @@
 package main
 
 import (
+	_ "hook_script/config"
 	"hook_script/ginServer"
 	_ "hook_script/router"
 )

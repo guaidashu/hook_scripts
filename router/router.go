@@ -12,6 +12,6 @@ import (
 
 func init() {
 	fmt.Println("开始初始化router")
-	ginServer.GET("/hook", controllers.IvrHook)
+	ginServer.GET("/hook", controllers.Hook)
 	fmt.Println("router初始化成功")
 }
