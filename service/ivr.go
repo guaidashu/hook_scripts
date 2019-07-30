@@ -19,7 +19,7 @@ func Hook(ctx *gin.Context) {
 	cmd.Args = args
 	err := cmd.Start()
 	if err != nil {
-		utils.Success(ctx, err)
+		utils.Success(ctx, "shell execute failed")
 		return
 	}
 	utils.Success(ctx, shellPath)
