@@ -12,6 +12,7 @@ import (
 
 func init() {
 	fmt.Println("开始初始化router")
-	ginServer.GET("/hook", controllers.Hook)
+	ginServer.POST("/hook/:name", controllers.Hook)
+	ginServer.POST("/testParam/:name", controllers.TestParam)
 	fmt.Println("router初始化成功")
 }

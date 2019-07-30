@@ -13,7 +13,7 @@ import (
 )
 
 func Hook(ctx *gin.Context) {
-	shellPath := ctx.Request.URL.Query().Get("name")
+	shellPath := ctx.Param("name")
 	shellPath = config.Config.HookPath + shellPath + ".sh"
 	cmd := exec.Command(shellPath)
 	args := []string{cmd.Args[0], config.Config.HookPath}
