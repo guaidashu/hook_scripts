@@ -5,22 +5,18 @@
 package service
 
 import (
-	"github.com/gin-gonic/gin"
 	"hook_script/config"
-	"hook_script/utils"
 	"os/exec"
 )
 
-func Hook(ctx *gin.Context) {
-	shellPath := ctx.Param("name")
+func Hook(shellPath string) string {
 	shellPath = config.Config.HookPath + shellPath + ".sh"
 	cmd := exec.Command(shellPath)
 	args := []string{cmd.Args[0], config.Config.HookPath}
 	cmd.Args = args
 	err := cmd.Start()
 	if err != nil {
-		utils.Success(ctx, "shell execute failed")
-		return
+		return "shell execute failed"
 	}
-	utils.Success(ctx, shellPath)
+	return shellPath
 }
