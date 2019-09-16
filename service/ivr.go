@@ -5,7 +5,7 @@
 package service
 
 import (
-	"hook_script/config"
+	"hook_scripts/config"
 	"os/exec"
 )
 

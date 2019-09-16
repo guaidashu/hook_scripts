@@ -7,7 +7,7 @@ package config
 import (
 	"fmt"
 	"github.com/jinzhu/configor"
-	"hook_script/data_struct"
+	"hook_scripts/data_struct"
 )
 
 var Config data_struct.Config

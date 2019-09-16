@@ -6,8 +6,8 @@ package router
 
 import (
 	"fmt"
-	"hook_script/controllers"
-	"hook_script/ginServer"
+	"hook_scripts/controllers"
+	"hook_scripts/ginServer"
 )
 
 func init() {

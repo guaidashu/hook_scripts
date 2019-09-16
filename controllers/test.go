@@ -6,8 +6,9 @@ package controllers
 
 import (
 	"fmt"
+	"hook_scripts/utils"
+
 	"github.com/gin-gonic/gin"
-	"hook_script/utils"
 )
 
 func TestParam(ctx *gin.Context) {

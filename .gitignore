@@ -2,3 +2,5 @@
 test
 .vscode
 main
+hook_scripts
+go.sum

@@ -6,8 +6,8 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"hook_script/service"
-	"hook_script/utils"
+	"hook_scripts/service"
+	"hook_scripts/utils"
 )
 
 func Hook(ctx *gin.Context) {

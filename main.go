@@ -5,9 +5,9 @@
 package main
 
 import (
-	_ "hook_script/config"
-	"hook_script/ginServer"
-	_ "hook_script/router"
+	_ "hook_scripts/config"
+	"hook_scripts/ginServer"
+	_ "hook_scripts/router"
 )
 
 func main() {

@@ -1,4 +1,4 @@
-module hook_script
+module hook_scripts
 
 go 1.12
 

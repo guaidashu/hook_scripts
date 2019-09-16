@@ -6,7 +6,7 @@ package utils
 
 import (
 	"github.com/gin-gonic/gin"
-	"hook_script/data_struct"
+	"hook_scripts/data_struct"
 	"net/http"
 )
 
