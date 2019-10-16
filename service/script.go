@@ -5,18 +5,25 @@
 package service
 
 import (
+	"context"
 	"hook_scripts/config"
 	"os/exec"
 )
 
 func Hook(shellPath string) string {
+	var (
+		ctx    context.Context
+		cmd    *exec.Cmd
+		err    error
+		outPut []byte
+	)
 	shellPath = config.Config.Hook.Path + shellPath + config.Config.Hook.Suffix
-	cmd := exec.Command(shellPath)
+	cmd = exec.CommandContext(ctx, shellPath)
 	args := []string{cmd.Args[0], config.Config.Hook.Path}
 	cmd.Args = args
-	err := cmd.Start()
+	outPut, err = cmd.CombinedOutput()
 	if err != nil {
 		return "shell execute failed"
 	}
-	return shellPath
+	return string(outPut)
 }
