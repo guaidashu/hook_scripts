@@ -11,5 +11,5 @@ import (
 )
 
 func main() {
-	ginServer.Run("127.0.0.1:8099")
+	ginServer.Run()
 }

@@ -5,5 +5,16 @@
 package data_struct
 
 type Config struct {
-	HookPath string
+	Hook HookConfig `json:"hook" xml:"hook"`
+	App  AppConfig  `json:"app" xml:"app"`
+}
+
+type AppConfig struct {
+	Host string      `json:"host" xml:"host"`
+	Port interface{} `json:"port" xml:"port"`
+}
+
+type HookConfig struct {
+	Path   string `json:"path" xml:"path"`
+	Suffix string `json:"suffix" xml:"suffix"`
 }

@@ -4,3 +4,6 @@ test
 main
 hook_scripts
 go.sum
+.DS_Store
+**/.DS_Store
+config/config.yml

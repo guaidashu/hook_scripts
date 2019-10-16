@@ -4,7 +4,11 @@
 
 package ginServer
 
-import "github.com/gin-gonic/gin"
+import (
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"hook_scripts/config"
+)
 
 var (
 	Router *gin.Engine
@@ -23,5 +27,10 @@ func POST(pattern string, function gin.HandlerFunc) {
 }
 
 func Run(addr ...string) {
-	_ = Router.Run(addr...)
+	if len(addr) > 0 || config.Config.App.Host == "" {
+		_ = Router.Run(addr...)
+		return
+	}
+	address := fmt.Sprintf("%v:%v", config.Config.App.Host, config.Config.App.Port)
+	_ = Router.Run(address)
 }

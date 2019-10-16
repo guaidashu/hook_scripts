@@ -10,9 +10,9 @@ import (
 )
 
 func Hook(shellPath string) string {
-	shellPath = config.Config.HookPath + shellPath + ".sh"
+	shellPath = config.Config.Hook.Path + shellPath + config.Config.Hook.Suffix
 	cmd := exec.Command(shellPath)
-	args := []string{cmd.Args[0], config.Config.HookPath}
+	args := []string{cmd.Args[0], config.Config.Hook.Path}
 	cmd.Args = args
 	err := cmd.Start()
 	if err != nil {

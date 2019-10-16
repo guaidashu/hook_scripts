@@ -1,2 +1,6 @@
-hookpath:
-  "/home/scripts/"
+hook:
+  path: "/home/scripts/"
+  suffix: ".sh"
+app:
+  host: "127.0.0.1"
+  port: 8099
