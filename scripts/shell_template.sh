@@ -1,22 +1,34 @@
-#!/bin/bash
+PROJECTNAME=project_name
 
-LOGPATH="$1"logs/project_log.log
+PROJECTPATH=project_path
 
-date +"%Y-%m-%d %H:%M:%S" >> $LOGPATH
+if [ -z "$1" ]
+then
+        echo "Not a root path."
+        exit 1
+fi
 
-cd project_root_dir
-git pull >> $LOGPATH 2>&1
-echo "" >> $LOGPATH
-sudo supervisorctl stop project_name >> $LOGPATH 2>&1
+LOGPATH="$1"logs/"$PROJECTNAME".log
 
-echo "" >> $LOGPATH
+function log() {
+        echo $* >> $LOGPATH
+}
+
+log $( date +"%Y-%m-%d %H:%M:%S" 2>&1 )
+
+cd /home/ubuntu/"$PROJECTPATH"
+log $( git pull 2>&1 )
+log ""
+log $( sudo supervisorctl stop $PROJECTNAME 2>&1 )
+
+log ""
 
 export GOPATH=/home/ubuntu/
 export GOCACHE="/home/ubuntu/.cache/go-build"
-go build >> $LOGPATH 2>&1
+log $( go build  2>&1 )
 
-sudo supervisorctl start project_name >> $LOGPATH 2>&1
+log $( sudo supervisorctl start $PROJECTNAME 2>&1 )
 
-echo "" >> $LOGPATH
+log ""
 
-echo "" >> $LOGPATH
+log ""

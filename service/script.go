@@ -17,6 +17,7 @@ func Hook(shellPath string) string {
 		err    error
 		outPut []byte
 	)
+	ctx = context.TODO()
 	shellPath = config.Config.Hook.Path + shellPath + config.Config.Hook.Suffix
 	cmd = exec.CommandContext(ctx, shellPath)
 	args := []string{cmd.Args[0], config.Config.Hook.Path}
