@@ -17,6 +17,7 @@ git clone git@github.com:guaidashu/hook_scripts.git
         app:
           host: "127.0.0.1"
           port: 8099
+          debug: true
 
     (2) First you should create a shell script or other scripts which can be executed. /home/scripts/test.sh
         

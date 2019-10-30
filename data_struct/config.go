@@ -10,8 +10,9 @@ type Config struct {
 }
 
 type AppConfig struct {
-	Host string      `json:"host" xml:"host"`
-	Port interface{} `json:"port" xml:"port"`
+	Host  string      `json:"host" xml:"host"`
+	Port  interface{} `json:"port" xml:"port"`
+	Debug bool        `json:"debug"`
 }
 
 type HookConfig struct {

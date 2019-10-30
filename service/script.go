@@ -6,7 +6,9 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"hook_scripts/config"
+	"hook_scripts/libs"
 	"os/exec"
 )
 
@@ -17,14 +19,22 @@ func Hook(shellPath string) string {
 		err    error
 		outPut []byte
 	)
+
 	ctx = context.TODO()
+
 	shellPath = config.Config.Hook.Path + shellPath + config.Config.Hook.Suffix
+
 	cmd = exec.CommandContext(ctx, shellPath)
+
 	args := []string{cmd.Args[0], config.Config.Hook.Path}
+
 	cmd.Args = args
+
 	outPut, err = cmd.CombinedOutput()
+
 	if err != nil {
-		return "shell execute failed"
+		return fmt.Sprintf("shell execute failed: %v", libs.NewReportError(err).Error())
 	}
+
 	return string(outPut)
 }

@@ -6,12 +6,12 @@ package controllers
 
 import (
 	"fmt"
-	"hook_scripts/utils"
+	"hook_scripts/libs"
 
 	"github.com/gin-gonic/gin"
 )
 
 func TestParam(ctx *gin.Context) {
 	fmt.Println(ctx.Param("name"))
-	utils.Success(ctx, "ok")
+	libs.Success(ctx, "ok")
 }
