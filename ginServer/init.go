@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/gin-gonic/gin"
 	"hook_scripts/config"
+	"hook_scripts/libs"
 )
 
 var (
@@ -15,6 +16,7 @@ var (
 )
 
 func init() {
+	_, _ = libs.InitLogger()
 	Router = gin.Default()
 }
 
