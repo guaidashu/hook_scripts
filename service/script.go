@@ -12,13 +12,15 @@ import (
 	"os/exec"
 )
 
-func Hook(shellPath string) string {
+func Hook(shellPath string, data []byte) string {
 	var (
 		ctx    context.Context
 		cmd    *exec.Cmd
 		err    error
 		outPut []byte
 	)
+
+	return string(data)
 
 	ctx = context.TODO()
 
