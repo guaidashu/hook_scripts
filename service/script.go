@@ -20,6 +20,8 @@ func Hook(shellPath string, data []byte) string {
 		outPut []byte
 	)
 
+	libs.Logger.Info(string(data))
+
 	return string(data)
 
 	ctx = context.TODO()
