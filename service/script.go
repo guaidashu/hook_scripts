@@ -6,13 +6,14 @@ package service
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"hook_scripts/config"
 	"hook_scripts/libs"
 	"os/exec"
 )
 
-func Hook(shellPath string, data []byte) string {
+func Hook(shellPath string, data string) string {
 	var (
 		ctx    context.Context
 		cmd    *exec.Cmd
@@ -20,9 +21,15 @@ func Hook(shellPath string, data []byte) string {
 		outPut []byte
 	)
 
-	libs.Logger.Info(string(data))
+	m := make(map[string]interface{}, 1)
 
-	return string(data)
+	_ = json.Unmarshal([]byte(data), &m)
+
+	fmt.Println(m)
+
+	libs.Logger.Info(m)
+
+	return data
 
 	ctx = context.TODO()
 
