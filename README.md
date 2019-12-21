@@ -12,12 +12,15 @@ git clone git@github.com:guaidashu/hook_scripts.git
 
     (1) Modify hook_scripts/config/config.yml. If the file is not exists, please creating it and adding the following.
     
+    If you don't want to update program, set updatetoken like below.
+    
         hookpath:
           "/home/scripts/"
         app:
           host: "127.0.0.1"
           port: 8099
           debug: true
+          updatetoken: "token"
 
     (2) First you should create a shell script or other scripts which can be executed. /home/scripts/test.sh
         

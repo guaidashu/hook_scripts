@@ -10,10 +10,11 @@ type Config struct {
 }
 
 type AppConfig struct {
-	Host   string      `json:"host" xml:"host"`
-	Port   interface{} `json:"port" xml:"port"`
-	Debug  bool        `json:"debug"`
-	LogDir string      `json:"log_dir" xml:"log_dir"`
+	Host        string      `json:"host" xml:"host"`
+	Port        interface{} `json:"port" xml:"port"`
+	Debug       bool        `json:"debug"`
+	LogDir      string      `json:"log_dir" xml:"logdir"`
+	UpdateToken string      `json:"update_token" xml:"updatetoken"`
 }
 
 type HookConfig struct {

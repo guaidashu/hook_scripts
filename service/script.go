@@ -9,27 +9,28 @@ import (
 	"encoding/json"
 	"fmt"
 	"hook_scripts/config"
+	"hook_scripts/data_struct"
 	"hook_scripts/libs"
 	"os/exec"
 )
 
 func Hook(shellPath string, data string) string {
+
 	var (
-		ctx    context.Context
-		cmd    *exec.Cmd
-		err    error
-		outPut []byte
+		ctx     context.Context
+		cmd     *exec.Cmd
+		err     error
+		outPut  []byte
+		payload data_struct.Payload
 	)
 
-	m := make(map[string]interface{}, 1)
+	if err = json.Unmarshal([]byte(data), &payload); err != nil {
+		return "get null commits content"
+	}
 
-	_ = json.Unmarshal([]byte(data), &m)
-
-	fmt.Println(m)
-
-	libs.Logger.Info(m)
-
-	return data
+	if payload.Commits[0].Message != "" && payload.Commits[0].Message != config.Config.App.UpdateToken {
+		return "invalid update token"
+	}
 
 	ctx = context.TODO()
 
