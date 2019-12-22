@@ -12,9 +12,13 @@ import (
 
 func Hook(ctx *gin.Context) {
 
-	result := ctx.Param("name")
+	shellName := ctx.Param("name")
 
 	data := ctx.PostForm("payload")
 
-	libs.Success(ctx, service.Hook(result, data))
+	result := service.Hook(shellName, data)
+
+	libs.Logger.Info(result)
+
+	libs.Success(ctx, result)
 }
