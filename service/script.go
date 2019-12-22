@@ -28,7 +28,9 @@ func Hook(shellPath string, data string) string {
 		return "get null commits content"
 	}
 
-	if payload.Commits[0].Message != "" && payload.Commits[0].Message != config.Config.App.UpdateToken {
+	if config.Config.App.UpdateToken != "" &&
+		payload.Commits[0].Message != "" &&
+		payload.Commits[0].Message != config.Config.App.UpdateToken {
 		return "invalid update token"
 	}
 
