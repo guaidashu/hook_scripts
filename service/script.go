@@ -12,6 +12,7 @@ import (
 	"hook_scripts/data_struct"
 	"hook_scripts/libs"
 	"os/exec"
+	"strings"
 )
 
 func Hook(shellPath string, data string) string {
@@ -30,7 +31,7 @@ func Hook(shellPath string, data string) string {
 
 	if config.Config.App.UpdateToken != "" &&
 		payload.Commits[0].Message != "" &&
-		payload.Commits[0].Message != config.Config.App.UpdateToken {
+		strings.Contains(payload.Commits[0].Message, config.Config.App.UpdateToken) {
 		return "invalid update token"
 	}
 
