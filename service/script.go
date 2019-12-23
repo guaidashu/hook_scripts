@@ -30,6 +30,7 @@ func Hook(shellPath string, data string) string {
 	}
 
 	if config.Config.App.UpdateToken != "" &&
+		len(payload.Commits) != 0 &&
 		payload.Commits[0].Message != "" &&
 		!strings.Contains(payload.Commits[0].Message, config.Config.App.UpdateToken) {
 		return "invalid update token"
