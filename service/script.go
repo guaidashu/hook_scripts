@@ -38,11 +38,13 @@ func Hook(shellPath string, data string) string {
 
 	ctx = context.TODO()
 
-	shellPath = config.Config.Hook.Path + shellPath + config.Config.Hook.Suffix
+	shellPath = config.Config.HookPath.Path + shellPath + config.Config.HookPath.Suffix
+
+	fmt.Println(shellPath)
 
 	cmd = exec.CommandContext(ctx, shellPath)
 
-	args := []string{cmd.Args[0], config.Config.Hook.Path}
+	args := []string{cmd.Args[0], config.Config.HookPath.Path}
 
 	cmd.Args = args
 

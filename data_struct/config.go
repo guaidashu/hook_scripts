@@ -5,7 +5,7 @@
 package data_struct
 
 type Config struct {
-	Hook HookConfig `json:"hook" xml:"hook"`
+	HookPath HookConfig `json:"hook_path" xml:"hookpath"`
 	App  AppConfig  `json:"app" xml:"app"`
 }
 
