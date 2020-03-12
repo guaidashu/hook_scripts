@@ -15,8 +15,8 @@ git clone git@github.com:guaidashu/hook_scripts.git
     If you don't want to update program, set updatetoken like below.
     
         hookpath:
-          "/home/scripts/"
-          ".sh"
+          path: "/home/scripts/"
+          suffix: ".sh"
         app:
           host: "127.0.0.1"
           port: 8099
